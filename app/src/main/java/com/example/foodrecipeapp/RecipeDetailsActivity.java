@@ -1,6 +1,6 @@
 package com.example.foodrecipeapp;
 
-//import static com.meetvishalkumar.myapplication.R.id.Navigation_bar_item_login;
+
 
 import android.animation.LayoutTransition;
 import android.content.Context;
@@ -39,8 +39,7 @@ import com.example.foodrecipeapp.Listeners.RecipeClickListener;
 import com.example.foodrecipeapp.Listeners.RecipeDetailsListener;
 import com.example.foodrecipeapp.Listeners.SimilarRecipesListener;
 import com.example.foodrecipeapp.Loading_Animation.RecipeLoading;
-//import com.meetvishalkumar.myapplication.UserAccount.Profile;
-//import com.meetvishalkumar.myapplication.UserAccount.Splash_Login;
+
 import com.example.foodrecipeapp.Models.InstructionsResponse;
 import com.example.foodrecipeapp.Models.RecipeDetailsResponse;
 import com.example.foodrecipeapp.Models.SimilarRecipeResponse;
@@ -60,12 +59,14 @@ public class RecipeDetailsActivity extends AppCompatActivity implements Navigati
     private final RecipeClickListener recipeClickListener = new RecipeClickListener() {
         @Override
         public void onRecipeClick(String id) {
-            startActivity(new Intent(RecipeDetailsActivity.this, RecipeDetailsActivity.class).putExtra("id", id));
+            startActivity(new Intent(RecipeDetailsActivity.this, RecipeDetailsActivity.class)
+                    .putExtra("id", id));
         }
     };
     int id;
   //  private FirebaseAnalytics mFirebaseAnalytics;
-    TextView TextView_Meal_Name, textView_Meal_Source, textview_meal_Summary, textview_meal_Summary_Expand, textView_meal_servings, textView_meal_ready, textView_meal_price, ready_in, servings, healthy, instructions;
+    TextView TextView_Meal_Name, textView_Meal_Source, textview_meal_Summary, textview_meal_Summary_Expand,
+          textView_meal_servings, textView_meal_ready, textView_meal_price, ready_in, servings, healthy, instructions;
     ImageView ImageView_meal_image, vegeterian;
     RecyclerView recycler_meal_ingrediets, Recycler_meal_similar, Recycler_meal_instructions;
     RequestManager manager;

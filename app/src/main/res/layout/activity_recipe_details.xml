@@ -37,8 +37,7 @@
                 <ImageView
                     android:id="@+id/menu_opener_image"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/login_signup_backgroud" />
+                    android:layout_height="wrap_content"/>
 
                 <TextView
                     android:layout_width="wrap_content"

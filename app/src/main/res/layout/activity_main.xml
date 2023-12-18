@@ -49,9 +49,13 @@
 
                 <ImageView
                     android:id="@+id/menu_opener_image"
+
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/menu_50" />
+                    android:layout_height="100dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_gravity="start"
+                    android:layout_marginLeft="-13dp"
+                    />
 
                 <Spinner
                     android:id="@+id/spinner_tags"

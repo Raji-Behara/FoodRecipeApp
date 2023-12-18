@@ -35,32 +35,14 @@ dependencies {
 
 
 
-   /* implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation ("com.google.android.material:material:1.7.0")
-  *//*  implementation ("androidx.constraintlayout:constraintlayout:2.1.4")*//*
-    implementation ("com.google.firebase:firebase-auth:21.1.0")
-    implementation ("com.google.firebase:firebase-database:20.1.0")
-    implementation ("androidx.navigation:navigation-fragment:2.5.3")
-    implementation ("androidx.navigation:navigation-ui:2.5.3")
-    implementation ("com.google.firebase:firebase-analytics:21.2.0")
-
-    testImplementation ("junit:junit:4.13.2")
-    androidTestImplementation ("androidx.test.ext:junit:1.1.4")
-    androidTestImplementation ("androidx.test.espresso:espresso-core:3.5.0")
-
-    //    Custom dependencies
-    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
-    implementation ("com.squareup.picasso:picasso:2.71828")
-    implementation ("com.airbnb.android:lottie:5.2.0")
-    implementation ("com.google.android.material:material:1.7.0")
-    implementation ("com.hbb20:ccp:2.6.1")
-    implementation ("io.github.chaosleung:pinview:1.4.4")
-    implementation ("io.github.muddz:styleabletoast:2.4.0")
-*/
 
 
+    val room_version = "2.2.6"
+   // val room_version = "2.3.0"
 
+    //noinspection GradleCompatible,GradleCompatible,GradleCompatible,GradleCompatible
+    implementation("androidx.room:room-runtime:$room_version")
+    annotationProcessor("androidx.room:room-compiler:$room_version")
 
     //implementation ("androidx.appcompat:appcompat:1.5.1")
     implementation ("com.google.android.material:material:1.7.0")

@@ -20,6 +20,8 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 //import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.example.foodrecipeapp.Models.Ingredient;
+import com.example.foodrecipeapp.Models.Recipe;
 import com.google.android.material.navigation.NavigationView;
 //import com.google.firebase.analytics.FirebaseAnalytics;
 //import com.google.firebase.auth.FirebaseAuth;
@@ -34,14 +36,21 @@ import com.example.foodrecipeapp.Models.RandomRecipeApiResponse;
 import java.util.ArrayList;
 import java.util.List;
 
-//import io.github.muddz.styleabletoast.StyleableToast;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,DataBaseManager.DataBaseManagerInterfaceListener {
+
+    ArrayList<Recipe>list= new ArrayList<>(0);
+
+    DataBaseManager dataBaseManager;
+
     //
     static final float END_SCALE = 0.7f;
     private final RecipeClickListener recipeClickListener = new RecipeClickListener() {
         @Override
         public void onRecipeClick(String id) {
+           // Intent i=new Intent(MainActivity.this,RecipeDetailsActivity.class);
             startActivity(new Intent(MainActivity.this, RecipeDetailsActivity.class)
                     .putExtra("id", id));
         }
@@ -69,6 +78,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             recipeLoading.cancel();
             recipeLoading.dismiss();
             recipeLoading.hide();
+          //  dataBaseManager.listener = this;
+           // dataBaseManager.getDb(this);
         }
 
         @Override
@@ -214,6 +225,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return false;
     }
 
+    @Override
+    public void databaseGetListOfCities(List<Ingredient> l) {
+
+    }
+
    /* @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
@@ -301,5 +317,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
      *//*
 
 */
+
 
 }
