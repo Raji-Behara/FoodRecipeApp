@@ -12,6 +12,7 @@ import java.util.concurrent.Executors;
 
 public class MyApp extends Application {
 
+    public static Handler mainhandler;
     DataBaseManager databaseManager = new DataBaseManager();
 
     ArrayList<Recipe> listofrecipies = new ArrayList<>(0);

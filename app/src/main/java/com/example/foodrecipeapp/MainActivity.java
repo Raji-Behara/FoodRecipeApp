@@ -17,6 +17,7 @@ import androidx.appcompat.widget.SearchView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 //import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
@@ -39,7 +40,8 @@ import java.util.List;
 
 
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,DataBaseManager.DataBaseManagerInterfaceListener {
+public class MainActivity extends AppCompatActivity implements
+        NavigationView.OnNavigationItemSelectedListener,DataBaseManager.DataBaseManagerInterfaceListener {
 
     ArrayList<Recipe>list= new ArrayList<>(0);
 
@@ -59,6 +61,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     RequestManager manager;
+    RecyclerView rvItems;
     RandomRecipeAdapter randomRecipeAdapter;
     RecyclerView RecyclerView;
    // SwipeRefreshLayout swipeRefreshLayout;
@@ -78,14 +81,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             recipeLoading.cancel();
             recipeLoading.dismiss();
             recipeLoading.hide();
-          //  dataBaseManager.listener = this;
-           // dataBaseManager.getDb(this);
+          //  dataBaseManager.listener = MainActivity.this;
+          //  dataBaseManager.getDb(MainActivity.this);
+
+
         }
+
+
 
         @Override
         public void didError(String message) {
             Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT);
         }
+
+
+
     };
     Spinner spinner;
     List<String> tags = new ArrayList<>();
@@ -98,13 +108,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             /*if (checkInternet()) {
                 //        TO SHow loading
                 recipeLoading.show();
+
+
+
             }*/
+
+           // rvItems = findViewById(R.id.rvItems);
+           // rvItems.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+
         }
 
         @Override
         public void onNothingSelected(AdapterView<?> adapterView) {
 
         }
+
     };
     SearchView searchView;
     ImageView menu_opener_image;
@@ -167,7 +185,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         manager = new RequestManager(this);
     }
-
+   /* @Override
+    protected void onResume() {
+        super.onResume();
+        dataBaseManager.getAllIngredientsInBGThread();
+    }*/
     //        Navigation Drawer Setting Start
     private void navigationView() {
 
@@ -186,6 +208,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
     }
+
+
 
     private void animateNavigationDrawer() {
         //Add any color or remove it to use the default one!
@@ -226,97 +250,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     @Override
-    public void databaseGetListOfCities(List<Ingredient> l) {
+    public void databaseGetListOfIngredients(List<Ingredient> l) {
 
     }
+
+
 
    /* @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-           *//* case R.id.Navigation_bar_item_Home:
-                StyleableToast.makeText(getApplicationContext(), "You Are Already On this Activity", Toast.LENGTH_SHORT, R.style.OnActivity).show();
-                break;*//*
-            case R.id.Navigation_bar_item_Meal:
-                Intent intent = new Intent(getApplicationContext(), meal_planner.class);
-                startActivity(intent);
-                break;
-            case R.id.Navigation_bar_item_Tips:
-                Intent intent1 = new Intent(getApplicationContext(), Tips.class);
-                startActivity(intent1);
-                break;*/
-           /* case R.id.Navigation_bar_item_login:
-                Intent intent2 = new Intent(getApplicationContext(), Splash_Login.class);
-                startActivity(intent2);
-                break;*/
-            /*case R.id.Navigation_bar_item_logout:
-                mAuth = FirebaseAuth.getInstance();
-                FirebaseAuth.getInstance().signOut();
-                StyleableToast.makeText(getApplicationContext(), "You Successfully Logged out", Toast.LENGTH_SHORT, R.style.OnActivity).show();
-                Intent intent3 = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent3);
-                break;
-            case R.id.Navigation_bar_item_Profile:
-                Intent intent4 = new Intent(getApplicationContext(), Profile.class);
-                startActivity(intent4);
-                break;
+    public void databaseGetListOfIngredients(List<Ingredient> l) {
 
-            case R.id.Navigation_bar_item_Insert_Data_Screen:
-                Intent intent8 = new Intent(getApplicationContext(), Insert_Data.class);
-                startActivity(intent8);
-                break;*/
-           /* case R.id.Navigation_bar_item_Share:
-                Intent intent9 = new Intent(Intent.ACTION_SEND);
-                intent9.setType("text/plain");
-                intent9.putExtra(Intent.EXTRA_SUBJECT, "Check Out This New Recipes App");
-                intent9.putExtra(Intent.EXTRA_SUBJECT, "Don't Forget to Give Star");
-                intent9.putExtra(Intent.EXTRA_SUBJECT, "Source Code:https://github.com/vishalkumar456/food-recipe-android-app");
-                startActivity(Intent.createChooser(intent9, "Share Via:"));
+    }*/
 
-        }
-        return true;
-    }
-
-    private boolean checkInternet() {
-        ConnectivityManager connectivityManager
-                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetworkInfo = connectivityManager != null ? connectivityManager.getActiveNetworkInfo() : null;
-        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
-    }
-    *//*
-     * Listen for option item selections so that we receive a notification
-     * when the user requests a refresh by selecting the refresh action bar item.
-     *//*
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        switch (item.getItemId()) {
-//
-//            // Check if user triggered a refresh:
-//            case R.id.menu_refresh:
-//                Log.i(LOG_TAG, "Refresh menu item selected");
-//
-//                // Signal SwipeRefreshLayout to start the progress indicator
-//                mySwipeRefreshLayout.setRefreshing(true);
-//
-//                // Start the refresh background task.
-//                // This method calls setRefreshing(false) when it's finished.
-//                myUpdateOperation();
-//
-//                return true;
-//        }
-//
-//        // User didn't trigger a refresh, let the superclass handle this action
-//        return super.onOptionsItemSelected(item);
-//    }
-    *//*
-     * Sets up a SwipeRefreshLayout.OnRefreshListener that is invoked when the user
-     * performs a swipe-to-refresh gesture.
-     *//*
-    *//*
-     * Listen for option item selections so that we receive a notification
-     * when the user requests a refresh by selecting the refresh action bar item.
-     *//*
-
-*/
 
 
 }

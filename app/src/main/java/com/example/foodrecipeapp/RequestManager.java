@@ -93,7 +93,7 @@ public class RequestManager {
         });
     }
 
-    public void getInstructions(InstructionsListener listener, int id) {
+   /* public void getInstructions(InstructionsListener listener, int id) {
         CallInstrutions callInstrutions = retrofit.create(CallInstrutions.class);
         Call<List<InstructionsResponse>> call = callInstrutions.callInstructions(id, context.getString(R.string.api_key));
         call.enqueue(new Callback<List<InstructionsResponse>>() {
@@ -111,7 +111,7 @@ public class RequestManager {
                 listener.didError(t.getMessage());
             }
         });
-    }
+    }*/
 
     private interface CallRandomRecipes {
         @GET("recipes/random")

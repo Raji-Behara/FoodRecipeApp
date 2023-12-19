@@ -25,23 +25,7 @@
                 android:value="" />
         </activity>
 
-       <!-- <activity
-            android:name=".Insert_Data"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
 
-
-
-        <activity
-            android:name=".meal_planner"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>&ndash;&gt;-->
         <activity
             android:name=".MainActivity"
             android:exported="true">
