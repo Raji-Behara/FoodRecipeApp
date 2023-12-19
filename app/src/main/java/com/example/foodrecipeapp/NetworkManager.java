@@ -2,7 +2,6 @@ package com.example.foodrecipeapp;
 
 import android.content.Context;
 
-import com.example.foodrecipeapp.Listeners.InstructionsListener;
 import com.example.foodrecipeapp.Listeners.RandomRecipesResponseListener;
 import com.example.foodrecipeapp.Listeners.RecipeDetailsListener;
 import com.example.foodrecipeapp.Listeners.SimilarRecipesListener;
@@ -22,13 +21,13 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
-public class RequestManager {
+public class NetworkManager {
     Context context;
     Retrofit retrofit = new Retrofit.Builder()
                          .baseUrl("https://api.spoonacular.com/")
                          .addConverterFactory(GsonConverterFactory.create()).build();
 
-    public RequestManager(Context context) {
+    public NetworkManager(Context context) {
         this.context = context;
     }
 

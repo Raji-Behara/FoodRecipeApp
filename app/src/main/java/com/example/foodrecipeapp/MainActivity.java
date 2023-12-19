@@ -17,7 +17,6 @@ import androidx.appcompat.widget.SearchView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 //import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
@@ -60,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements
   //  private FirebaseAnalytics mFirebaseAnalytics;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
-    RequestManager manager;
+    NetworkManager manager;
     RecyclerView rvItems;
     RandomRecipeAdapter randomRecipeAdapter;
     RecyclerView RecyclerView;
@@ -183,7 +182,7 @@ public class MainActivity extends AppCompatActivity implements
         spinner.setAdapter(arrayAdapter);
         spinner.setOnItemSelectedListener(spinnerSelectedListener);
 
-        manager = new RequestManager(this);
+        manager = new NetworkManager(this);
     }
    /* @Override
     protected void onResume() {

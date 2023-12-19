@@ -7,11 +7,7 @@ import androidx.room.PrimaryKey;
 import java.util.ArrayList;
 
 public class Recipe {
-//ArrayList<Recipe>recipeArrayList;
 
-
-
-   // public ArrayList<ExtendedIngredient> extendedIngredients;
     public int id;
     public String title;
     public int readyInMinutes;

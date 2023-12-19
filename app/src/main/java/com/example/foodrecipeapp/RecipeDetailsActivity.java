@@ -5,7 +5,6 @@ package com.example.foodrecipeapp;
 import android.animation.LayoutTransition;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -14,7 +13,6 @@ import android.transition.AutoTransition;
 import android.transition.TransitionManager;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -69,7 +67,7 @@ public class RecipeDetailsActivity extends AppCompatActivity implements Navigati
           textView_meal_servings, textView_meal_ready, textView_meal_price, ready_in, servings, healthy, instructions;
     ImageView ImageView_meal_image, vegeterian;
     RecyclerView recycler_meal_ingrediets, Recycler_meal_similar, Recycler_meal_instructions;
-    RequestManager manager;
+    NetworkManager manager;
     IngredientsAdapter ingredientsAdapter;
     private RecipeLoading recipeLoading;
     private final RecipeDetailsListener recipeDetailsListener = new RecipeDetailsListener() {
@@ -161,7 +159,7 @@ public class RecipeDetailsActivity extends AppCompatActivity implements Navigati
         Layout_Expand.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
 
         id = Integer.parseInt(getIntent().getStringExtra("id"));
-        manager = new RequestManager(this);
+        manager = new NetworkManager(this);
         manager.getRecipeDetials(recipeDetailsListener, id);
         manager.getSimilarRecipes(similarRecipesListener, id);
       //  manager.getInstructions(instructionsListener, id);
