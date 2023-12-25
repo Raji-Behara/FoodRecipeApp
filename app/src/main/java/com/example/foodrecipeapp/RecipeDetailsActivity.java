@@ -47,13 +47,7 @@ import java.util.List;
 
 public class RecipeDetailsActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     static final float END_SCALE = 0.7f;
-  /*  private final CustomOnClickListener similarOnClickListener = new CustomOnClickListener() {
-        @Override
-        public void onClick(String text) {
-            startActivity(new Intent(RecipeDetailsActivity.this, RecipeDetailsActivity.class)
-                    .putExtra("id", text));
-        }
-    };*/
+
     private final RecipeClickListener recipeClickListener = new RecipeClickListener() {
         @Override
         public void onRecipeClick(String id) {
@@ -62,7 +56,7 @@ public class RecipeDetailsActivity extends AppCompatActivity implements Navigati
         }
     };
     int id;
-  //  private FirebaseAnalytics mFirebaseAnalytics;
+
     TextView TextView_Meal_Name, textView_Meal_Source, textview_meal_Summary, textview_meal_Summary_Expand,
           textView_meal_servings, textView_meal_ready, textView_meal_price, ready_in, servings, healthy, instructions;
     ImageView ImageView_meal_image, vegeterian;
@@ -74,13 +68,7 @@ public class RecipeDetailsActivity extends AppCompatActivity implements Navigati
 
         @Override
         public void didFetch(RecipeDetailsResponse response, String message) {
-           /* if (!checkInternet()) {
-                NoInternetDiaload noInternetDialoag = new NoInternetDiaload(getApplicationContext());
-                noInternetDialoag.setCancelable(false);
-                noInternetDialoag.getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
-                noInternetDialoag.getWindow().addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
-                noInternetDialoag.show();
-            }*/
+
             textView_meal_ready.setText(response.readyInMinutes + " Minutes");
 //            textView_meal_price.setText(response.pricePerServing + "$ Per Serving");
             textView_meal_servings.setText(response.servings + " Persons");
@@ -146,13 +134,7 @@ public class RecipeDetailsActivity extends AppCompatActivity implements Navigati
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipe_details);
-        /*if (!checkInternet()) {
-            NoInternetDiaload noInternetDialoag = new NoInternetDiaload(getApplicationContext());
-            noInternetDialoag.setCancelable(false);
-            noInternetDialoag.getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
-            noInternetDialoag.getWindow().addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
-            noInternetDialoag.show();
-        }*/
+
         findViews();
         navigationView();
 
@@ -249,47 +231,7 @@ public class RecipeDetailsActivity extends AppCompatActivity implements Navigati
         }
     }
 
-   /* @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.Navigation_bar_item_Home:
-                Intent intent11 = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent11);
-                break;
-            case R.id.Navigation_bar_item_Meal:
-                Intent intent = new Intent(getApplicationContext(), meal_planner.class);
-                startActivity(intent);
-                break;
-            case R.id.Navigation_bar_item_Tips:
-                Intent intent1 = new Intent(getApplicationContext(), Tips.class);
-                startActivity(intent1);
-                break;
-            case Navigation_bar_item_login:
-                Intent intent2 = new Intent(getApplicationContext(), Splash_Login.class);
-                startActivity(intent2);
-                break;
 
-            case R.id.Navigation_bar_item_logout:
-                mAuth = FirebaseAuth.getInstance();
-                FirebaseAuth.getInstance().signOut();
-                Intent intent3 = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent3);
-                break;
-            case R.id.Navigation_bar_item_Profile:
-                Intent intent4 = new Intent(getApplicationContext(), Profile.class);
-                startActivity(intent4);
-                break;
-
-            case R.id.Navigation_bar_item_Insert_Data_Screen:
-                Intent intent8 = new Intent(getApplicationContext(), Insert_Data.class);
-                startActivity(intent8);
-                break;
-
-
-        }
-        return true;
-    }*/
-    //        Navigation Drawer Setting End
     private boolean checkInternet() {
         ConnectivityManager connectivityManager
                 = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);

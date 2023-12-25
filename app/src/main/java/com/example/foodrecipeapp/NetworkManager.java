@@ -120,11 +120,5 @@ public class NetworkManager {
         );
     }
 
-    private interface CallInstrutions {
-        @GET("recipes/{id}/analyzedInstructions")
-        Call<List<InstructionsResponse>> callInstructions(
-                @Path("id") int id,
-                @Query("apiKey") String apiKey
-        );
-    }
+
 }
