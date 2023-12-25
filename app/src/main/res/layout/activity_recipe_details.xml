@@ -98,7 +98,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:drawableStart="@drawable/people_50"
+                    android:drawableStart="@drawable/people"
                     android:drawablePadding="8dp"
                     android:padding="8dp"
                     android:text="2 Persons"

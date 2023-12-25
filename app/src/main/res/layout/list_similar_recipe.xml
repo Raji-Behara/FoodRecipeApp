@@ -43,7 +43,7 @@
                 android:id="@+id/textView_similar_Serving"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/people_50"
+                android:drawableLeft="@drawable/people"
                 android:ellipsize="marquee"
                 android:marqueeRepeatLimit="marquee_forever"
                 android:padding="8dp"

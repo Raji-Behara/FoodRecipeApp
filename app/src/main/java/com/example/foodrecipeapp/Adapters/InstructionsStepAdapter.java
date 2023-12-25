@@ -49,7 +49,8 @@ public class InstructionsStepAdapter extends RecyclerView.Adapter<InstructionsSt
     }
 
     @Override
-    public int getItemCount() {
+    public int getItemCount()
+    {
         return list.size();
     }
 }

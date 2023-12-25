@@ -13,7 +13,7 @@
         android:layout_height="match_parent">
 
     <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvItems"
+            android:id="@+id/recycler_items"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -94,7 +94,7 @@
                     android:layout_height="match_parent"
                     android:scrollbarStyle="insideOverlay"
                     app:iconifiedByDefault="false"
-                    app:queryHint="Search..." />
+                    app:queryHint="Search" />
             </androidx.cardview.widget.CardView>
 
             <androidx.recyclerview.widget.RecyclerView

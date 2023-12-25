@@ -76,7 +76,7 @@ dependencies {
     implementation ("com.squareup.picasso:picasso:2.71828")
 
     //noinspection GradleCompatible,GradleCompatible
-  //  implementation("com.android.support:support-compat:28.0.0")
+  // implementation("com.android.support:support-compat:28.0.0")
     //noinspection GradleCompatible,GradleCompatible
 
     implementation("com.google.android.material:material:1.10.0")
