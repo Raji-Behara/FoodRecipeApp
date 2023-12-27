@@ -1,8 +1,7 @@
 package com.example.foodrecipeapp.Models;
 
 
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
+
 
 import java.util.ArrayList;
 
