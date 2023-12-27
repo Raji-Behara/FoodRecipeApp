@@ -1,26 +1,26 @@
 <resources>
-    <string name="app_name">Tasty Tips</string>
+    <string name="app_name">RecipeApp</string>
 
     <string name="api_key">2724cbfe4c934d5e856b1902437aed1d</string>
 
     <string name="_2_perons">2 Perons</string>
 
     <string-array name="tags">
-        <item>menu</item>
-        <item>side dish</item>
-        <item>dessert</item>
-        <item>appetizer</item>
-        <item>salad</item>
-        <item>bread</item>
-        <item>breakfast</item>
-        <item>soup</item>
+        <item>మెను</item>
+        <item>సైడ్ డిష్</item>
+        <item>డెజర్ట్</item>
+        <item>ఆకలి పుట్టించేది</item>
+        <item>సలాడ్</item>
+        <item>రొట్టె</item>
+        <item>అల్పాహారం</item>
+        <item>చారు</item>
 
-        <item>sauce</item>
-        <item>marinade</item>
-        <item>snack</item>
-        <item>drink</item>
-        <item>cakes</item>
-        <item>fish</item>
+        <item>సాస్</item>
+        <item>చేప</item>
+        <item>వేలు ఆహారం</item>
+        <item>చిరుతిండి</item>
+        <item>పానీయాలు</item>
+        <item>కేకులు</item>
     </string-array>
 
     <!--    Desp-->
@@ -35,7 +35,6 @@
     <string name="slogan">Fresh And  Delicious</string>
     <string name="recipe_details">Recipe Details</string>
     <string name="FoodApp">FoodApp</string>
-    <string name="recipe">FoodRecipeApp</string>
 
-    Strings used for fragments for navigation
+     Strings used for fragments for navigation
 </resources>
