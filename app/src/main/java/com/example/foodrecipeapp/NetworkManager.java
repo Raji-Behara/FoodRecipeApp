@@ -2,6 +2,7 @@ package com.example.foodrecipeapp;
 
 import android.content.Context;
 
+import com.example.foodrecipeapp.Listeners.InstructionsListener;
 import com.example.foodrecipeapp.Listeners.RandomRecipesResponseListener;
 import com.example.foodrecipeapp.Listeners.RecipeDetailsListener;
 import com.example.foodrecipeapp.Listeners.SimilarRecipesListener;
@@ -94,6 +95,27 @@ public class NetworkManager {
 
 
 
+    public void getInstructions(InstructionsListener listener, int id) {
+        CallInstrutions callInstrutions = retrofit.create(CallInstrutions.class);
+        Call<List<InstructionsResponse>> call = callInstrutions.callInstructions(id, context.getString(R.string.api_key));
+        call.enqueue(new Callback<List<InstructionsResponse>>() {
+            @Override
+            public void onResponse(Call<List<InstructionsResponse>> call, Response<List<InstructionsResponse>> response) {
+                if (!response.isSuccessful()) {
+                    listener.didError(response.message());
+                    return;
+                }
+                listener.didFetch(response.body(), response.message());
+            }
+
+            @Override
+            public void onFailure(Call<List<InstructionsResponse>> call, Throwable t) {
+                listener.didError(t.getMessage());
+            }
+        });
+    }
+
+
     private interface CallRandomRecipes {
         @GET("recipes/random")
         Call<RandomRecipeApiResponse> callRandomRecipe(
@@ -116,6 +138,14 @@ public class NetworkManager {
         Call<List<SimilarRecipeResponse>> CallSimilarRecipe(
                 @Path("id") int id,
                 @Query("number") String number,
+                @Query("apiKey") String apiKey
+        );
+    }
+
+    private interface CallInstrutions {
+        @GET("recipes/{id}/analyzedInstructions")
+        Call<List<InstructionsResponse>> callInstructions(
+                @Path("id") int id,
                 @Query("apiKey") String apiKey
         );
     }

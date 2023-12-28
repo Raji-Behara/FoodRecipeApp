@@ -144,7 +144,7 @@ public class RecipeDetailsActivity extends AppCompatActivity implements Navigati
         manager = new NetworkManager(this);
         manager.getRecipeDetials(recipeDetailsListener, id);
         manager.getSimilarRecipes(similarRecipesListener, id);
-      //  manager.getInstructions(instructionsListener, id);
+       manager.getInstructions(instructionsListener, id);
 
 //        TO SHow loading
         recipeLoading.show();
